@@ -1,8 +1,9 @@
 {
   "name": "Kanji Grade Checker",
   "short_name": "kanji-grade-",
-  "start_url": "/",
+  "start_url": "/kanji-grade-checker/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#6366f1"
+  "theme_color": "#6366f1",
+  "scope": "/kanji-grade-checker/"
 }
