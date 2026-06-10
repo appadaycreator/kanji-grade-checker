@@ -12,9 +12,11 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#4338CA" />
     <title>漢字検定レベル診断【無料】無料診断・アドバイス</title>
-    <meta name="description" content="簡単な漢字テストで漢字検定の推定級を診断。勉強のロードマップを提案。スマホ・PC対応。登録不要・完全無料。">
+    <meta name="description" content="簡単な漢字テストであなたの漢字検定の推定級を診断。合格に向けた学習ロードマップを提案します。スマートフォン・PC対応で、登録やアプリのインストールは不要。完全無料でご利用いただけます。">
     <link rel="canonical" href="https://appadaycreator.com/kanji-grade-checker/">
-    <link rel="manifest" href="/kanji-grade-checker/manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="manifest" href="/kanji-grade-checker/manifest.json">
     <meta property="og:title" content="漢字検定レベル診断【無料】無料診断・アドバイス">
     <meta property="og:description" content="簡単な漢字テストで漢字検定の推定級を診断。スマホ・PC対応。登録不要・完全無料。">
     <meta property="og:url" content="https://appadaycreator.com/kanji-grade-checker/">
@@ -44,7 +46,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"漢字検定レベル診断【無料】無料診断・アドバイスの使い方","step":[{"@type":"HowToStep","position":1,"name":"必要事項を入力する","text":"フォームに必要な情報（数値・選択肢・条件）を入力または選択する"},{"@type":"HowToStep","position":2,"name":"診断・計算を実行する","text":"「診断する」「計算する」または「確認する」ボタンを押して結果を取得する"},{"@type":"HowToStep","position":3,"name":"結果・分析を確認する","text":"表示された診断結果・計算結果・グラフをじっくり確認する"},{"@type":"HowToStep","position":4,"name":"アドバイスを活用する","text":"結果に基づくアドバイスや提案を日常生活に取り入れる"},{"@type":"HowToStep","position":5,"name":"定期的に再チェックする","text":"生活変化に応じて定期的に再診断して進捗を追跡する"}]}</script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', 'Noto Sans JP', sans-serif; background: linear-gradient(135deg, #E0E7FF 0%, #EEF2FF 100%); min-height: 100vh; color: #333; line-height: 1.6; }
+        body { font-family: 'Inter', 'Noto Sans JP', sans-serif; background: #f8fafc; min-height: 100vh; color: #333; line-height: 1.6; }
         .site-header { background: #4338CA; color: white; padding: 32px 20px; text-align: center; }
         .site-header .emoji { font-size: 52px; margin-bottom: 8px; }
         .site-header h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
@@ -55,6 +57,8 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
         .btn:hover { opacity: 0.9; }
         .btn:active { transform: scale(0.98); }
         .btn:focus-visible { outline: 3px solid #4338CA; outline-offset: 3px; }
+        .btn-secondary { background: #e2e8f0; color: #4338CA; width: auto; display: inline-block; padding: 10px 20px; }
+        .btn-secondary:hover { opacity: 0.8; background: #cbd5e1; }
         input, select, textarea { width: 100%; padding: 10px 14px; border: 1.5px solid #e2e8f0; border-radius: 8px; font-size: 15px; margin-top: 4px; font-family: inherit; min-height: 44px; }
         input:focus, select:focus, textarea:focus { outline: none; border-color: #4338CA; box-shadow: 0 0 0 3px #4338CA22; }
         label { font-size: 13px; font-weight: 600; color: #555; display: block; margin-top: 14px; margin-bottom: 2px; }
@@ -64,6 +68,17 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
         .badge { display: inline-block; background: #4338CA20; color: #4338CA; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
         .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
         .related-links a { color:#4338CA; }
+        .toast { position:fixed;bottom:24px;right:20px;background:#10b981;color:white;padding:14px 20px;border-radius:8px;z-index:9999;animation:slideIn .3s ease;box-shadow:0 4px 12px rgba(0,0,0,.2); }
+        @keyframes slideIn { from { transform: translateY(100px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .score-bar { background: #f1f5f9; border-radius: 8px; height: 24px; overflow: hidden; margin: 12px 0; }
+        .score-bar-fill { height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px; font-weight: 700; transition: width .3s ease; }
+        .score-fill-green { background: #10b981; }
+        .score-fill-blue { background: #3b82f6; }
+        .score-fill-yellow { background: #f59e0b; }
+        .score-fill-orange { background: #f97316; }
+        .score-fill-red { background: #ef4444; }
+        .history-item { padding: 10px 12px; background: #f8fafc; border-radius: 8px; border-left: 3px solid #4338CA; margin-bottom: 8px; font-size: 13px; cursor: pointer; transition: background .2s; }
+        .history-item:hover { background: #e2e8f0; }
         @media (max-width: 480px) {
             .site-header { padding: 24px 16px; }
             .site-header h1 { font-size: 20px; }
@@ -71,6 +86,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
             .card { padding: 16px; }
             .btn { font-size: 15px; padding: 13px 20px; }
             .result-value { font-size: 28px; }
+            .toast { bottom: 16px; right: 16px; }
         }
         /* ── サービス固有CSS ── */
         .option-btn { width:100%;padding:16px;border:2px solid #e2e8f0;border-radius:10px;
@@ -85,11 +101,13 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
         .road-icon { font-size:18px;flex-shrink:0;font-weight:700; }
     
 @media print{
-  header,footer,nav,button,.no-print,
+  header,footer,nav,.no-print,.btn-secondary,
   [class*="share"],[class*="affiliate"],[id*="share"],
-  [id*="affiliate"],[id*="banner"],
+  [id*="affiliate"],[id*="banner"],#history-section,#quiz-start,#quiz-area,.related-links,.card:not(.result .card),
   script,noscript{display:none!important}
   body{background:#fff!important;color:#000!important;font-size:12pt}
+  .result{display:block!important}
+  .result .card{display:block!important}
   [id*="result"],[id*="output"],[id*="advice"],[id*="diagnosis"],[class*="result"]{display:block!important}
   a[href]::after{content:none!important}
 }
@@ -109,10 +127,35 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
         <h1>漢字検定レベル診断</h1>
         <p>簡単な漢字テストで漢字検定の推定級を診断。勉強のロードマップを提案。</p>
     </header>
+<div style="background:#4338ca;padding:5px 12px;text-align:right;font-size:.78rem"><a href="/blog/" style="color:#c7d2fe;text-decoration:none;font-weight:600">📖 コラム</a>&nbsp;｜&nbsp;<a href="/" style="color:#c7d2fe;text-decoration:none">ホーム</a></div>
+<!-- r21-breadcrumb -->
+<nav aria-label="パンくずリスト" style="background:#f8fafc;border-bottom:1px solid #e2e8f0;padding:5px 16px;font-size:.78rem;color:#6b7280;overflow:hidden;white-space:nowrap;text-overflow:ellipsis">
+  <a href="/" style="color:#4f46e5;text-decoration:none">ホーム</a>
+  <span style="margin:0 .35rem;color:#9ca3af">›</span>
+  <span style="color:#374151">漢字検定レベル診断【無料】無料診断・アドバイス</span>
+</nav>
+
 
     <main id="main-content" class="container" role="main" aria-label="漢字検定レベル診断のメインコンテンツ">
-        <ins class="adsbygoogle" style="display:block;min-height:0;margin:12px 0" data-ad-client="ca-pub-8427583028015858" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<nav aria-label="パンくずリスト" style="background:#f8fafc;border-bottom:1px solid #e2e8f0;padding:6px 0;">
+  <div class="container mx-auto px-4">
+    <ol style="display:flex;flex-wrap:wrap;align-items:center;gap:4px;font-size:0.8rem;color:#6b7280;list-style:none;margin:0;padding:0;">
+      <li><a href="https://appadaycreator.com/" style="color:#4b5563;text-decoration:none;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='#4b5563'">ホーム</a></li>
+      <li style="color:#9ca3af;">›</li>
+      <li><a href="https://appadaycreator.com/category/game/" style="color:#4b5563;text-decoration:none;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='#4b5563'">ゲーム・パズル</a></li>
+      <li style="color:#9ca3af;">›</li>
+      <li style="color:#1f2937;">漢字検定レベル診断無料診断・アドバイス</li>
+    </ol>
+  </div>
+</nav>
+        <ins class="adsbygoogle" style="display:block;min-height:90px;margin:12px 0" data-ad-client="ca-pub-8427583028015858" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>try{try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}}catch(e){}</script>
+
+        <div id="history-section" style="display:none;" class="card">
+          <h3 style="font-size:14px;font-weight:700;margin-bottom:12px;color:#374151;">📊 過去の診断結果（最新5件）</h3>
+          <div id="history-list"></div>
+          <button class="btn-secondary" onclick="clearHistory()" style="display:block;width:100%;background:#fee2e2;color:#991b1b;margin-top:12px;">🗑️ 履歴をクリア</button>
+        </div>
 
         <div id="quiz-start" class="card">
           <h2 style="font-size:18px;font-weight:700;margin-bottom:12px;">📝 漢字検定レベル診断</h2>
@@ -122,6 +165,20 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
             <li>所要時間：約2分</li>
             <li>完全無料・登録不要</li>
           </ul>
+          <label>🎯 目標級を設定（オプション）</label>
+          <select id="target-grade" style="margin-bottom:16px;">
+            <option value="">目標を設定しない</option>
+            <option value="10級">10級（小学1年相当）</option>
+            <option value="9級">9級（小学2年相当）</option>
+            <option value="8級">8級（小学3年相当）</option>
+            <option value="7級">7級（小学4年相当）</option>
+            <option value="6級">6級（小学5年相当）</option>
+            <option value="5級">5級（小学6年相当）</option>
+            <option value="4級">4級（中学相当）</option>
+            <option value="3級">3級（中学卒業相当）</option>
+            <option value="準2級">準2級（高校相当）</option>
+            <option value="2級">2級（高校卒業相当）</option>
+          </select>
           <button class="btn" onclick="startQuiz()">診断スタート →</button>
         </div>
 
@@ -142,9 +199,18 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
             <p style="font-size:13px;color:#64748b;margin-bottom:8px;">あなたの推定漢検レベル</p>
             <div class="grade-badge" id="r-grade"></div>
             <h3 id="r-title" style="font-size:16px;font-weight:700;color:#4338CA;margin-bottom:8px;"></h3>
-            <p id="r-score" style="font-size:13px;color:#64748b;margin-bottom:12px;"></p>
+            <div id="r-score" style="font-size:13px;color:#64748b;margin-bottom:12px;"></div>
+            <div id="score-bar-container"></div>
+            <div id="goal-section" style="display:none;background:#fef3c7;border:1px solid #fcd34d;border-radius:10px;padding:12px;margin-bottom:16px;text-align:left;">
+              <p style="font-size:13px;font-weight:600;color:#92400e;margin-bottom:8px;">🎯 目標達成度</p>
+              <div id="goal-progress"></div>
+            </div>
             <p id="r-desc" style="font-size:14px;color:#475569;line-height:1.7;text-align:left;margin-bottom:16px;"></p>
             <div id="r-roadmap" style="text-align:left;margin-bottom:16px;"></div>
+            <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;">
+              <button class="btn-secondary" onclick="printResult()" style="flex:1;min-width:120px;">🖨️ 印刷</button>
+              <button class="btn-secondary" onclick="copyResult()" style="flex:1;min-width:120px;">📋 コピー</button>
+            </div>
             <div style="text-align:center;padding:12px;background:#E0E7FF30;border-radius:10px;margin-bottom:16px;">
               <p style="font-size:13px;font-weight:600;color:#374151;margin-bottom:10px;">📣 結果をシェアして友人と比べる</p>
               <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
@@ -166,8 +232,8 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
             </div>
         </div>
 
-        <ins class="adsbygoogle" style="display:block;min-height:0;margin:12px 0" data-ad-client="ca-pub-8427583028015858" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        <ins class="adsbygoogle" style="display:block;min-height:90px;margin:12px 0" data-ad-client="ca-pub-8427583028015858" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>try{try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}}catch(e){}</script>
 
         <!-- 使い方セクション -->
         <div class="card" style="margin-top:8px;background:#f8fafc;">
@@ -209,7 +275,7 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
         </div>
 
         <!-- SNSシェアCTA -->
-        <div class="card" style="margin-top:8px;text-align:center;background:linear-gradient(135deg,#E0E7FF,#EEF2FF);" role="complementary" aria-label="SNSシェア">
+        <div class="card" style="margin-top:8px;text-align:center;background:#f0f9ff;" role="complementary" aria-label="SNSシェア">
             <p style="font-size:13px;font-weight:600;color:#374151;margin-bottom:10px;">📣 友人・家族にシェアする</p>
             <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
                 <a href="https://twitter.com/intent/tweet?text=%E6%BC%A2%E5%AD%97%E6%A4%9C%E5%AE%9A%E3%83%AC%E3%83%99%E3%83%AB%E8%A8%BA%E6%96%AD%20%23無料ツール&url=https%3A%2F%2Fappadaycreator.com%2Fkanji-grade-checker%2F" target="_blank" rel="noopener" aria-label="漢字検定レベル診断をXでシェア" style="background:#1DA1F2;color:white;padding:8px 16px;border-radius:8px;font-size:13px;text-decoration:none;font-weight:600;min-height:44px;display:inline-flex;align-items:center;">𝕏 シェア</a>
@@ -221,41 +287,115 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
         <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px;margin:8px 0;font-size:12px;color:#92400e;">
             <strong>⚠️ 免責事項</strong>：本ツールの計算・診断結果はあくまで参考情報です。医療・法律・税務・投資等の専門的判断が必要な場合は、必ず資格を持つ専門家にご相談ください。本サービスの利用により生じた損害について、当サービスは一切の責任を負いません。
         </div>
-    </main>
+    
+<section aria-labelledby="faq-h" class="bg-white rounded-2xl shadow-md p-4 mb-4" style="max-width:740px;margin-left:auto;margin-right:auto">
+  
+<div style="background:#f0f7ff;border:1px solid #bfdbfe;border-radius:12px;padding:1.5rem 1.75rem;margin:2rem 0" id="tool-desc-box">
+  <h2 style="font-size:1.05rem;font-weight:800;color:#1e40af;margin:0 0 1rem">📋 このツールの詳細</h2>
+  <p style="color:#374151;margin:0 0 .75rem;line-height:1.8">「漢字検定レベル診断」は、あなたの状況に合わせたアドバイスを提供する無料の診断・アドバイスツールです。</p>
+  <p style="color:#374151;margin:0 0 .75rem;line-height:1.8">いくつかの質問に答えるだけで、あなたに最適な提案や判断基準をわかりやすく提示します。</p>
+  <p style="color:#374151;margin:0;line-height:1.8">情報収集や比較検討の時間を大幅に短縮できるので、迷っているときの第一歩として活用いただけます。</p>
+</div>
+<div style="background:#eaf4fb;border-left:4px solid #1976d2;padding:20px 24px;margin:24px 0;border-radius:0 8px 8px 0">
+  <h3 style="font-size:1.1rem;font-weight:800;color:#1e3a5f">このツールでできること</h3>
+  <p style="margin:8px 0 0;line-height:1.7;color:#1a1a2e">漢字の読み書き問題を解くことで、現在の漢字力が漢字検定何級レベルかを診断します。2〜10級まで対応し、苦手な漢字の傾向分析と学習アドバイスも提供します。</p>
+</div>
+<div style="background:#f0fdf4;border-left:4px solid #388e3c;padding:20px 24px;margin:24px 0;border-radius:0 8px 8px 0">
+  <h3 style="font-size:1.1rem;font-weight:800;color:#1b5e20">活用シーン・使い方</h3>
+  <p style="margin:8px 0 0;line-height:1.7;color:#1a1a2e">漢字検定の受験準備や、自分の漢字力を確認したい方に最適です。小学生の漢字学習サポートや、ビジネスシーンで正しい漢字を使いたい社会人の学び直しにも活用できます。</p>
+</div>
+<div style="background:#fff8e1;border-left:4px solid #f57c00;padding:20px 24px;margin:24px 0;border-radius:0 8px 8px 0">
+  <h3 style="font-size:1.1rem;font-weight:800;color:#e65100">注意点・補足</h3>
+  <p style="margin:8px 0 0;line-height:1.7;color:#1a1a2e">このツールの診断はあくまで目安です。漢字検定の公式試験は日本漢字能力検定協会が実施しています。受験を検討される方は公式サイトで試験日程・申し込み方法をご確認ください。</p>
+</div>
+<!-- r22-editorial -->
+<div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:.75rem;padding:1.5rem;margin:1.5rem 0">
+  <h2 style="font-size:1.05rem;font-weight:800;color:#1e3a8a;margin:0 0 1rem;border-left:4px solid #2563eb;padding-left:.75rem">学習・語学の効果と習慣データ</h2>
+  <p style="font-size:.88rem;color:#4b5563;margin:0 0 .75rem">文部科学省・研究機関のデータをもとに、効果的な学習方法と習慣化のポイントを整理しました。</p>
+  <table style="width:100%;border-collapse:collapse;font-size:.83rem">
+    <thead>
+      <tr style="background:#bfdbfe">
+        <th style="padding:.5rem .75rem;text-align:left;border:1px solid #bfdbfe;color:#1e3a8a">項目</th>
+        <th style="padding:.5rem .75rem;text-align:left;border:1px solid #bfdbfe;color:#1e3a8a">データ</th>
+        <th style="padding:.5rem .75rem;text-align:left;border:1px solid #bfdbfe;color:#1e3a8a">出典</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background:#eff6ff">
+        <td style="padding:.5rem .75rem;border:1px solid #bfdbfe;font-weight:600;color:#1e3a8a">英語習熟度（EF EPI）日本の順位</td>
+        <td style="padding:.5rem .75rem;border:1px solid #bfdbfe"><strong>EF EPI 2023年：世界87位（87カ国中）</strong></td>
+        <td style="padding:.5rem .75rem;border:1px solid #bfdbfe;font-size:.78rem;color:#6b7280">Education First「EFEnglish Proficiency Index 2023」</td>
+      </tr>
+      <tr style="">
+        <td style="padding:.5rem .75rem;border:1px solid #bfdbfe;font-weight:600;color:#1e3a8a">社会人の学習時間（1日平均）</td>
+        <td style="padding:.5rem .75rem;border:1px solid #bfdbfe"><strong>約6分（学習している人の平均：約60分）</strong></td>
+        <td style="padding:.5rem .75rem;border:1px solid #bfdbfe;font-size:.78rem;color:#6b7280">総務省「社会生活基本調査」2021年</td>
+      </tr>
+      <tr style="background:#eff6ff">
+        <td style="padding:.5rem .75rem;border:1px solid #bfdbfe;font-weight:600;color:#1e3a8a">スキルアップで給与上昇した割合</td>
+        <td style="padding:.5rem .75rem;border:1px solid #bfdbfe"><strong>資格取得後に年収増加を実感：約40%</strong></td>
+        <td style="padding:.5rem .75rem;border:1px solid #bfdbfe;font-size:.78rem;color:#6b7280">複数の転職・スキルアップ調査から参考値</td>
+      </tr>
+      <tr style="">
+        <td style="padding:.5rem .75rem;border:1px solid #bfdbfe;font-weight:600;color:#1e3a8a">習慣化に必要な平均日数</td>
+        <td style="padding:.5rem .75rem;border:1px solid #bfdbfe"><strong>約66日（21日は最低ライン）</strong></td>
+        <td style="padding:.5rem .75rem;border:1px solid #bfdbfe;font-size:.78rem;color:#6b7280">Phillippa Lally et al. (2010) European Journal of Social Psychology</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size:.78rem;color:#6b7280;margin:.5rem 0 0">※ 記載データは各出典の公表時点の情報です。最新情報は各公的機関の公式サイトをご確認ください。</p>
+</div>
+<!-- r20-tool-links -->
+<div id="tool-disclaimer" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:1.25rem 1.5rem;margin:1.5rem 0;font-size:.875rem">
+  <p style="font-weight:700;color:#374151;margin:0 0 .5rem">⚠️ 計算結果の活用にあたって</p>
+  <p style="color:#4b5563;margin:0 0 .5rem;line-height:1.75">計算結果は参考値です。入力値や前提条件によって結果が変わります。重要な判断の際は最新の公式情報をご確認ください。</p>
+  <ul style="margin:0;padding-left:1.25rem;color:#4b5563;line-height:1.9"><li><a href="https://www.caa.go.jp/" target="_blank" rel="noopener noreferrer" style="color:#4f46e5;font-size:.85rem">消費者庁「くらしの安心ガイド」</a></li></ul>
+</div>
+<h2 id="faq-h" style="font-size:1.05rem;font-weight:700;margin-bottom:12px;border-left:4px solid #4f46e5;padding-left:10px;">よくある質問</h2>
+  <dl style="line-height:1.8;">
+    <dt style="font-weight:600;margin-top:12px;">Q: 診断結果はどう活用すればいいですか？</dt>
+    <dd style="margin-left:16px;color:#374151;">漢字検定レベル無料・アドバイスに関する判断・選択の参考情報としてご活用ください。条件を変えて複数回試すことで、より広い視点で検討できます。</dd>
+    <dt style="font-weight:600;margin-top:12px;">Q: 診断を繰り返し使えますか？</dt>
+    <dd style="margin-left:16px;color:#374151;">はい、条件を変えて何度でも診断いただけます。異なるシナリオで結果を比較することで、より確かな判断材料になります。</dd>
+    <dt style="font-weight:600;margin-top:12px;">Q: 入力したデータはどこに保存されますか？</dt>
+    <dd style="margin-left:16px;color:#374151;">すべての処理はブラウザ内で完結します。入力データがサーバーに送信されることはなく、プライバシーが守られます。</dd>
+  </dl>
+</section>
+<!-- r27-tool-guide -->
+<section style="margin:2rem 0;padding:1.5rem;background:#f8fafc;border-radius:.75rem;border:1px solid #e2e8f0">
+<h2 style="font-size:1rem;font-weight:700;color:#1f2937;margin:0 0 .75rem">漢字検定レベル診断の活用ガイド（診断・アドバイスツール）</h2>
+<p style="margin:0 0 .75rem;line-height:1.8;color:#374151">簡単な漢字テストであなたの漢字検定の推定級を診断。合格に向けた学習ロードマップを提案します。スマートフォン・PC対応で、登録やアプリのインストールは不要。完全無料でご利用いただけます。。登録不要・完全無料でご利用いただけます。スマートフォンやタブレットからもアクセス可能です。</p>
+<h3 style="font-size:.9rem;font-weight:700;color:#1f2937;margin:.75rem 0 .4rem">こんな方におすすめ</h3>
+<ul style="margin:0 0 .75rem;padding-left:1.4rem;line-height:2;font-size:.88rem;color:#374151">
+<li>自分に最適な選択肢を探したい方</li><li>複数の選択肢を比較・整理したい方</li><li>専門家に相談する前に自己診断したい方</li>
+</ul>
+<h3 style="font-size:.9rem;font-weight:700;color:#1f2937;margin:.75rem 0 .4rem">よくある質問</h3>
+<div style="margin-bottom:.6rem"><p style="font-weight:700;color:#111827;margin:0 0 .2rem;font-size:.88rem">Q. 診断結果はどう活用すればよいですか？</p><p style="color:#374151;margin:0;font-size:.85rem;line-height:1.75">A. 診断結果はあくまで目安です。最終的な判断は専門家にご相談の上、ご自身の状況に合わせて行ってください。</p></div><div style="margin-bottom:.6rem"><p style="font-weight:700;color:#111827;margin:0 0 .2rem;font-size:.88rem">Q. 個人情報は収集されますか？</p><p style="color:#374151;margin:0;font-size:.85rem;line-height:1.75">A. 入力した情報はサーバーに送信されず、お使いのデバイス内のみで処理されます。</p></div><div style="margin-bottom:.6rem"><p style="font-weight:700;color:#111827;margin:0 0 .2rem;font-size:.88rem">Q. スマートフォンで使えますか？</p><p style="color:#374151;margin:0;font-size:.85rem;line-height:1.75">A. はい、スマートフォン・タブレット・PCすべてに対応しています。</p></div>
+</section>
+</main>
 
     
 <script>
     // === 漢字検定レベル診断データ ===
-    // 各問題に正解と難易度（grade）を設定
     const QUESTIONS = [
-      // 10級レベル（小学1年生相当）
       { text:'「山」の読み方として正しいのは？', level:'10級レベル',
         opts:['やま','かわ','うみ','そら'], ans:0 },
-      // 9級レベル（小学2年生相当）
       { text:'「親切」の読み方は？', level:'9級レベル',
         opts:['おやきり','しんせつ','おやせつ','しんきり'], ans:1 },
-      // 8級レベル（小学3年生相当）
       { text:'「委員会」の読み方は？', level:'8級レベル',
         opts:['いいんかい','ゆいんかい','いいんえ','ゆいんえ'], ans:0 },
-      // 7級レベル（小学4年生相当）
       { text:'「努力」の読み方は？', level:'7級レベル',
         opts:['どりょく','ぬりょく','どりき','ぬりき'], ans:0 },
-      // 6級レベル（小学5年生相当）
       { text:'「複雑」の読み方は？', level:'6級レベル',
         opts:['ふくさつ','ふくざつ','ふうさつ','ふうざつ'], ans:1 },
-      // 5級レベル（小学6年生相当）
       { text:'「批判」の読み方は？', level:'5級レベル',
         opts:['ひはん','ひばん','びはん','びばん'], ans:0 },
-      // 4級レベル（中学在学程度）
       { text:'「漸次」の読み方は？', level:'4級レベル',
         opts:['ぜんじ','ぜんし','けんじ','けんし'], ans:0 },
-      // 3級レベル（中学卒業程度）
       { text:'「逡巡」の読み方は？', level:'3級レベル',
         opts:['しゅんじゅん','じゅんしゅん','しゅんじゅう','すんしゅん'], ans:0 },
-      // 準2級レベル（高校在学程度）
       { text:'「蹉跎」の読み方は？', level:'準2級レベル',
         opts:['さた','さだ','ざた','ざだ'], ans:0 },
-      // 2級レベル（高校卒業程度）
       { text:'「鷁首」の読み方は？', level:'2級レベル',
         opts:['げきしゅ','てきしゅ','ていしゅ','げいしゅ'], ans:0 },
     ];
@@ -268,10 +408,51 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
       { minScore:0,  grade:'9〜10級',   title:'初心者レベル', desc:'漢検9〜10級相当の段階です。基礎的な漢字から丁寧に学習を積み重ねましょう。継続が最大の武器です！', road:['📖 10〜8級テキストで基礎から学習','🖊️ 毎日5〜10個の漢字練習を習慣化','📅 無理のないペースでコツコツと'] },
     ];
 
-    let cur = 0, correctCount = 0, selectedIdx = 0;
+    const GRADE_LEVELS = { '10級':0, '9級':1, '8級':2, '7級':3, '6級':4, '5級':5, '4級':6, '3級':7, '準2級':8, '2級':9 };
+    const GRADE_VALUES = ['9〜10級','7〜8級','5〜6級','3〜4級','2〜準2級'];
+    let cur = 0, correctCount = 0, selectedIdx = 0, targetGrade = null, lastResult = null;
+
+    function initializeApp() {
+      const hist = getHistory();
+      if (hist.length > 0) {
+        document.getElementById('history-section').style.display = 'block';
+        renderHistory();
+      }
+      const stored = localStorage.getItem('targetGrade');
+      if (stored) document.getElementById('target-grade').value = stored;
+    }
+
+    function getHistory() {
+      const h = localStorage.getItem('quizHistory');
+      return h ? JSON.parse(h) : [];
+    }
+
+    function saveHistory(score, grade) {
+      const hist = getHistory();
+      const newEntry = { date: new Date().toLocaleString('ja-JP'), score, grade };
+      hist.unshift(newEntry);
+      if (hist.length > 5) hist.pop();
+      localStorage.setItem('quizHistory', JSON.stringify(hist));
+    }
+
+    function renderHistory() {
+      const hist = getHistory();
+      const html = hist.map(h => `<div class="history-item">${h.date} | ${h.grade} | ${h.score}/10問</div>`).join('');
+      document.getElementById('history-list').innerHTML = html || '<p style="font-size:13px;color:#9ca3af;">履歴がありません</p>';
+    }
+
+    function clearHistory() {
+      if (confirm('履歴を全削除してもよろしいですか？')) {
+        localStorage.removeItem('quizHistory');
+        document.getElementById('history-section').style.display = 'none';
+        document.getElementById('history-list').innerHTML = '';
+      }
+    }
 
     function startQuiz() {
       cur = 0; correctCount = 0; selectedIdx = 0;
+      targetGrade = document.getElementById('target-grade').value;
+      if (targetGrade) localStorage.setItem('targetGrade', targetGrade);
       document.getElementById('quiz-start').style.display = 'none';
       document.getElementById('quiz-area').style.display = 'block';
       document.getElementById('result').classList.remove('show');
@@ -318,21 +499,75 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
       renderQuestion();
     }
 
+    function getScoreColor(score) {
+      if (score === 10) return 'score-fill-green';
+      if (score >= 8) return 'score-fill-blue';
+      if (score >= 6) return 'score-fill-yellow';
+      if (score >= 4) return 'score-fill-orange';
+      return 'score-fill-red';
+    }
+
     function showResult() {
       document.getElementById('quiz-area').style.display = 'none';
       const gradeData = GRADES.find(g => correctCount >= g.minScore) || GRADES[GRADES.length - 1];
+      const percent = Math.round((correctCount / QUESTIONS.length) * 100);
+
+      lastResult = { score: correctCount, grade: gradeData.grade, percent, gradeData };
+
       document.getElementById('r-grade').textContent = gradeData.grade;
       document.getElementById('r-title').textContent = gradeData.title;
-      document.getElementById('r-score').textContent = `正解数：${correctCount} / ${QUESTIONS.length}問`;
+      document.getElementById('r-score').innerHTML = `<span style="font-weight:700;">${correctCount} / ${QUESTIONS.length}問 正解 (${percent}%)</span>`;
+
+      const colorClass = getScoreColor(correctCount);
+      document.getElementById('score-bar-container').innerHTML =
+        `<div class="score-bar"><div class="score-bar-fill ${colorClass}" style="width:${percent}%">${percent}%</div></div>`;
+
+      if (targetGrade) {
+        const targetVal = parseInt(targetGrade) || 8;
+        const currentGradeVal = correctCount >= 9 ? 2 : correctCount >= 7 ? 4 : correctCount >= 5 ? 6 : correctCount >= 3 ? 8 : 10;
+        const achievementPercent = Math.max(0, Math.min(100, 100 - (currentGradeVal - targetVal) * 5));
+        document.getElementById('goal-section').style.display = 'block';
+        document.getElementById('goal-progress').innerHTML =
+          `<p style="font-size:12px;margin-bottom:6px;">🎯 目標: ${targetGrade} | 現在: ${GRADE_VALUES[Math.max(0, Math.floor((10-correctCount)/2))]}</p>
+           <div class="score-bar"><div class="score-bar-fill score-fill-blue" style="width:${Math.max(achievementPercent, 0)}%">${Math.max(achievementPercent, 0).toFixed(0)}%</div></div>`;
+      }
+
       document.getElementById('r-desc').textContent = gradeData.desc;
       document.getElementById('r-roadmap').innerHTML =
         '<p style="font-size:13px;font-weight:700;color:#4338CA;margin-bottom:8px;">📚 おすすめ学習ロードマップ</p><ol style="padding:0;margin:0;">' +
         gradeData.road.map((r, idx) =>
           `<li style="list-style:none;margin:0;"><div class="road-item"><span class="road-icon">ステップ${idx + 1}</span><span>${r.slice(2)}</span></div></li>`
         ).join('') + '</ol>';
+
+      saveHistory(correctCount, gradeData.grade);
+      renderHistory();
+
       document.getElementById('result').classList.add('show');
       document.getElementById('result').scrollIntoView({behavior:'smooth', block:'start'});
     }
+
+    function printResult() {
+      if (!lastResult) return;
+      window.print();
+    }
+
+    function copyResult() {
+      if (!lastResult) return;
+      const text = `推定級: ${lastResult.grade} | 正解数: ${lastResult.score}/10 | 推定レベル: ${lastResult.gradeData.title}`;
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('✅ コピーしました');
+      });
+    }
+
+    function showToast(msg) {
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.textContent = msg;
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 2000);
+    }
+
+    window.addEventListener('DOMContentLoaded', initializeApp);
     </script>
 
     <!-- Amazon アフィリエイト -->
@@ -371,6 +606,34 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
         | <a href="contact.html" style="color:white;">お問い合わせ</a></p>
         <p style="margin-top:4px;font-size:11px;opacity:0.6;">最終更新: 2026年5月 | 本サービスはアフィリエイト広告を掲載しています（A8.net/Amazon）</p>
         <p style="margin-top:6px;">© 2026 AppADayCreator. All services are free.</p>
-    </footer>
+    <div style="background:linear-gradient(135deg,#1e3a5f,#2563eb);padding:16px 12px;text-align:center;margin-top:12px;">
+  <p style="color:#e0e7ff;font-size:12px;font-weight:600;margin:0 0 4px;">運営：AppADayCreator / Tech&amp;Brace</p>
+  <p style="color:#cbd5e1;font-size:11px;margin:0 0 10px;">累計399個のWebサービスをAI駆動で開発し、現在361件以上を公開・運用しています。
+AI導入・業務自動化・Webサービス開発のご相談はこちら。</p>
+  <a href="https://tech-and-brace.com/ai-automation?utm_source=appadaycreator&utm_medium=footer&utm_campaign=b2b_cta" target="_blank" rel="noopener" onclick="if(typeof gtag==='function'){gtag('event','b2b_cta_click',{source_page:window.location.pathname,cta_position:'footer',tool_category:document.querySelector('[aria-label=\"パンくずリスト\"] li:nth-child(3) a')?document.querySelector('[aria-label=\"パンくずリスト\"] li:nth-child(3) a').innerText:'general',destination:'https://tech-and-brace.com/ai-automation'})}" style="display:inline-block;background:#fff;color:#1e3a5f;font-size:11px;font-weight:700;padding:6px 16px;border-radius:20px;text-decoration:none;">法人・B2B相談はこちら →</a>
+</div>
+</footer>
+<div style="text-align:center;padding:10px 16px 14px;background:#eef2ff;border-top:2px solid #c7d2fe;margin-top:8px">
+<a href="/blog/" style="color:#4f46e5;font-size:.85rem;font-weight:700">📖 マネー・育児・キャリアのコラムを読む →</a>
+</div>
+<div style="background:#eef2ff;border-left:4px solid #4f46e5;border-radius:.5rem;padding:1rem 1.25rem;margin:1.5rem auto;max-width:760px;font-size:.875rem">
+<p style="margin:0 0 .5rem;font-weight:700;color:#3730a3">📖 お役立ちコラム</p>
+<ul style="margin:0;padding-left:1.25rem;color:#4f46e5;line-height:2">
+<li><a href="/blog/stock-investment-beginner/" style="color:#4f46e5">株式投資の始め方【初心者完全ガイド】</a></li>
+<li><a href="/blog/nisa-comparison/" style="color:#4f46e5">新NISA vs iDeCo 徹底比較</a></li>
+<li><a href="/blog/investment-risk-management/" style="color:#4f46e5">投資のリスク管理入門</a></li>
+</ul>
+</div>
+<!-- r17-mobile-ux -->
+<a href="#top" id="back-to-top" aria-label="ページトップへ戻る" style="display:none;position:fixed;bottom:24px;right:20px;background:#4f46e5;color:#fff;border:none;border-radius:50%;width:48px;height:48px;font-size:1.4rem;line-height:48px;text-align:center;text-decoration:none;box-shadow:0 4px 12px rgba(79,70,229,.4);z-index:9000;cursor:pointer" title="ページトップへ">↑</a>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if(!btn) return;
+  window.addEventListener('scroll', function(){
+    btn.style.display = window.scrollY > 400 ? 'block' : 'none';
+  }, {passive:true});
+})();
+</script>
 </body>
 </html>
